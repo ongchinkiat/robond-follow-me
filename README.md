@@ -141,3 +141,11 @@ Video URL: https://youtu.be/I8zjX-zyWBs
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=I8zjX-zyWBs" target="_blank"><img src="http://img.youtube.com/vi/I8zjX-zyWBs/0.jpg"
 alt="Follow Me" width="240" height="180" border="1" /></a>
+
+## Future Enhancements
+
+Base on the observations made while tuning the hyperparameters and network architecture, the performance of the FCN can still experience much improvements by simply having more layers and larger filter sizes.
+
+Doing these at an acceptable training speed would require the use of more powerful graphics card with more RAM, then the GTX 1070 with 8GB RAM that I am using.
+
+Also more data images could be added to the training and validation data sets, to improve the learning and reduce the risk of over fitting.
