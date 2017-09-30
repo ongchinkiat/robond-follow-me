@@ -106,7 +106,30 @@ The performance of the network may not be as good if the object (dog, cat, car, 
 
 More training data and a more complex FCN architecture will be needed for real life scenarios.
 
+## Model Training: Results
 
+The training of the FCN is done using a Nvidia GTX 1070 GPU.
+
+![Model Training](https://github.com/ongchinkiat/robond-follow-me/raw/master/fcn-training-curve.jpg "Model Training")
+
+Training loss decreases consistently, but validation loss fluctuates around 0.04 after only 6 epochs. This may be a sign of over fitting. Thus I limit the training to 10 epochs.
+
+The model files are
+1. model_weights_given_set.h5
+2. config_model_weights_given_set.h5
+
+The final Intersection over Union (IoU) for the network is 0.545.
+
+
+## Simulation
+
+The model trained is run to control the Quad-Ropter in the Unity Simulator.
+
+```
+python follower.py model_weights_given_set.h5
+```
+
+The model seems to work well in the simulator, identifying the hero on first encounter every time, and has no problem following the hero even if she is making shape turns.
 
 I have uploaded a video of a full simulation run of the Quad-Copter Simulator with the python controller script controlling the Quad-Copter to identify and follow the target.
 
