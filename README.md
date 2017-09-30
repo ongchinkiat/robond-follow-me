@@ -112,13 +112,17 @@ The training of the FCN is done using a Nvidia GTX 1070 GPU.
 
 ![Model Training](https://github.com/ongchinkiat/robond-follow-me/raw/master/fcn-training-curve.jpg "Model Training")
 
-Training loss decreases consistently, but validation loss fluctuates around 0.04 after only 6 epochs. This may be a sign of over fitting. Thus I limit the training to 10 epochs.
+Training loss decreases consistently, but validation loss fluctuates around 0.04 after only 6 epochs. This may be a sign of over fitting.
+
+Also, I encountered out of memory errors using the same network, at 12 epochs. I guess the network is using very near to the max memory of the graphics card, so every slight increase of memory usage after each epoch (possibly some memory leak) increases the risk of memory error.
+
+Thus I limit the training to 10 epochs.
 
 The model files are
 1. model_weights_given_set.h5
 2. config_model_weights_given_set.h5
 
-The final Intersection over Union (IoU) for the network is 0.545.
+The final Intersection over Union (IoU) for the network is 54.5% (0.545).
 
 
 ## Simulation
