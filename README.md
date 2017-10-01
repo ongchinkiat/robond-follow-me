@@ -92,7 +92,17 @@ In a traditional Convolution Network, the encoder layers are usually followed by
 
 In the Fully Convolution Network, we not only want to identifying whether the objects are in the image, we also want to know where the objects are.
 
-The encoder layers allow the network to identify our target objects in the image. The 1x1 Convolution Layer followed by the decoder layers helps to preserve some of the spatial information so that we also know where the objects are.
+So we replace the fully connected layers with 1x1 Convolution Layer, which helps to retain the spatial information from the input image.
+
+## Model Training: Encoding and Decoding
+
+In the Fully Convolution Network, the encoding layers uses convolution to help it identifying objects regardless of where the objects are located in the image.
+
+The decoding layers helps to identify the location of the identified objects, down to the pixel level.
+
+Each decoder layer make use of the skip connection technique by concatenating the output of the previous layer with the output of a layer a few steps before it. This concatenation helps the network to retain more spatial information that were "lost" in the in between layers.
+
+
 
 ## Model Training: Limitations
 
