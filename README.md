@@ -60,6 +60,8 @@ def decoder_block(small_ip_layer, large_ip_layer, filters):
     return output_layer
 ```
 
+The decoder includes a concatenation step which concatenates the current input with the output of a layer a few steps before it. This concatenation helps the network to retain more spatial information that were "lost" in the in between layers
+
 Since the decoder contains a concatenation step, the size of the output of the encoders and decoders need to be the same so that there are equal number of parameters to concatenate. That is why the strides of the encoders are all set to 2, and the bilinear upsampling in the decoder is set to 2 also.
 
 The number of filters should increase with each layer of the encoder and decrease with each layer of decoder. The result seems to get better when I increase the  number of filters. But I could not increase it beyond 64 due to the limitation of the 8GB Ram of the Nvidia GTX 1070 GPU that I am using.
@@ -100,7 +102,7 @@ In the Fully Convolution Network, the encoding layers uses convolution to help i
 
 The decoding layers helps to identify the location of the identified objects, down to the pixel level.
 
-Each decoder layer make use of the skip connection technique by concatenating the output of the previous layer with the output of a layer a few steps before it. This concatenation helps the network to retain more spatial information that were "lost" in the in between layers.
+Each decoder layer make use of the skip connection technique by concatenating the current input with the output of a layer a few steps before it. This concatenation helps the network to retain more spatial information that were "lost" in the in between layers.
 
 
 
