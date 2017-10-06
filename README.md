@@ -73,8 +73,8 @@ The following Hyperparameters were used for the final run to train the FCN.
 
 ```
 learning_rate = 0.01
-batch_size = 64
-num_epochs = 10
+batch_size = 32
+num_epochs = 50
 steps_per_epoch = 200
 validation_steps = 50
 workers = 2
@@ -82,7 +82,7 @@ workers = 2
 
 I started with learning_rate = 0.01, and didn't change it because the network seems to be training well with the error reducing constantly.
 
-I have to keep the batch_size at 64 due to the limitation of the 8GB Ram of the Nvidia GTX 1070 GPU that I am using.
+I have to keep the batch_size at 32 due to the limitation of the 8GB Ram of the Nvidia GTX 1070 GPU that I am using.
 
 The value of steps_per_epoch and validation_steps depends on the number of training and validation images available. For the amount of training and validation images I have, I guess 200 and 50 are reasonable numbers.
 
@@ -124,11 +124,9 @@ The training of the FCN is done using a Nvidia GTX 1070 GPU.
 
 ![Model Training](https://github.com/ongchinkiat/robond-follow-me/raw/master/fcn-training-curve.jpg "Model Training")
 
-Training loss decreases consistently, but validation loss fluctuates around 0.04 after only 6 epochs. This may be a sign of over fitting.
+Training loss decreases consistently, but validation loss fluctuates around 0.04 after only 6 epochs.
 
-Also, I encountered out of memory errors using the same network, at 12 epochs. I guess the network is using very near to the max memory of the graphics card, so every slight increase of memory usage after each epoch (possibly some memory leak) increases the risk of memory error.
-
-Thus I limit the training to 10 epochs.
+The training loss and validation loss doesn't decrease much after 20 epochs, thus I limit the training to 50 epochs.
 
 
 The final grade score for the network is 40.1% (0.401).
