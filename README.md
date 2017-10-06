@@ -130,16 +130,17 @@ Also, I encountered out of memory errors using the same network, at 12 epochs. I
 
 Thus I limit the training to 10 epochs.
 
-The model files are
-1. model_weights_given_set.h5
-2. config_model_weights_given_set.h5
 
-The final Intersection over Union (IoU) for the network is 54.5% (0.545).
+The final grade score for the network is 40.1% (0.401).
 
 
 ## Simulation
 
 The model trained is run to control the Quad-Ropter in the Unity Simulator.
+
+The model files are
+1. model_weights_given_set.h5
+2. config_model_weights_given_set.h5
 
 ```
 python follower.py model_weights_given_set.h5
